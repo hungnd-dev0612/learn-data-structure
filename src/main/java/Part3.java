@@ -13,9 +13,8 @@ public class Part3 {
         }
         String concat = "";
         for(int i : array){
-            String temp = String.valueOf(i);
             concat = concat.concat(String.valueOf(i)).concat(" ");
         }
+        scan.close();
     }
-
 }
