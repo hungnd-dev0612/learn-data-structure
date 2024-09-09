@@ -1,11 +1,9 @@
-import java.util.Arrays;
 import java.util.Scanner;
 
-public class Test {
+public class Part7_SecondWay {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // Nhập số lượng phần tử
         System.out.print("Nhập số lượng phần tử: ");
         int n = scanner.nextInt();
 
@@ -32,10 +30,8 @@ public class Test {
             int currentNumber = numbers[i];
             int currentFrequency = frequency[currentNumber];
             frequency[currentNumber] = currentFrequency + 1;
-            // Dòng trên tương đương với: frequency[numbers[i]]++;
-            System.out.println("frequency[currentNumber]: " + frequency[currentNumber]);
-            System.out.println("currentFrequency: " + currentFrequency);
-            System.out.println("frequency: " + Arrays.toString(frequency));
+//          hoac co the viet nhu nay
+//          frequency[numbers[i]]++; --> 3 dong tren gom thanh 1 dong nay
         }
 
         // In kết quả
