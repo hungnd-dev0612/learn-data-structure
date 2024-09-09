@@ -38,9 +38,7 @@ public class Part7_SecondWay {
         for (int i = 0; i <= max; i++) {
             if (frequency[i] > 0) {
                 System.out.print(i + " - " + frequency[i]);
-                if (i < max) {
                     System.out.print("; ");
-                }
             }
         }
 
