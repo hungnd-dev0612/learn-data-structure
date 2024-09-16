@@ -1,3 +1,5 @@
+package ds_array;
+
 import java.util.Scanner;
 
 public class Part2 {

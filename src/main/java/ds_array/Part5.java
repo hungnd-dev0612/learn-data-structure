@@ -1,4 +1,5 @@
-import java.util.Arrays;
+package ds_array;
+
 import java.util.Scanner;
 
 public class Part5 {
