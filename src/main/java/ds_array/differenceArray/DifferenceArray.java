@@ -1,4 +1,4 @@
-package ds_array;
+package ds_array.differenceArray;
 
 import java.util.Arrays;
 
@@ -54,8 +54,8 @@ public class DifferenceArray {
         };
         // Áp dụng các thao tác
         for (int[] operation : operations) {
-            int L = operation[0]; // Chuyển sang chỉ số 0-based
-            int R = operation[1]; // Chuyển sang chỉ số 0-based
+            int L = operation[0];
+            int R = operation[1];
             int K = operation[2];
 
             // Tăng từ L đến R

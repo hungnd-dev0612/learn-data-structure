@@ -1,4 +1,4 @@
-package ds_array;
+package ds_array.differenceArray;
 
 import java.util.Arrays;
 /*
