@@ -13,6 +13,14 @@ Bài này có 2 cách giải
 -Cách 2: Dùng vòng lặp truy xuất và đếm phần tử xuất hiện (rất phức tạp)
 
 ***Cách 1:
--tạo mảng chứa số lượng truy xuất phần tử, sau đó sử dụng phương pháp mảng hiệu để biết phần tử nào được truy xuất nhiều lần
-từ đó sắp xếp các phần tử lớn nhất vào chỗ chứa đó
+-tạo mảng chứa số lượng truy xuất phần tử, sau đó sử dụng phương pháp mảng hiệu để biết phần tử nào được truy xuất nhiều lần bằng mảng cộng dồn
+từ đó sắp xếp các phần tử lớn nhất vào chỗ chứa đó (fre[L] += 1 | fre[R+1] -= 1
 -sau khi đã ra được mảng chứa số lượng, thực hiện sort tăng dần hoặc giảm dần tuỳ ý
+-sau đó để ra được kết quả to nhất, ví dụ là 33 trong bài, thì sử dụng sum = arr[i] * fre[i]
+***
+***Cách 2: (không tối ưu, tốn Q*N
+-tạo mảng chứa số lượng truy xuất phần tử, sau đó sử dụng phương pháp mảng hiệu để biết phần tử nào được truy xuất nhiều lần
+            for (int i = l; i <= r; i++) {
+                frequency[i]++;
+            }
+-tiếp theo làm như cách trên
