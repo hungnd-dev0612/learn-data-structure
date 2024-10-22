@@ -12,15 +12,19 @@ Bài này có 2 cách giải
 -Cách 1: Dùng mảng hiệu để đếm phần tử xuất hiện
 -Cách 2: Dùng vòng lặp truy xuất và đếm phần tử xuất hiện (rất phức tạp)
 
-***Cách 1:
+***Cách 1: Tối ưu (O+1)
 -tạo mảng chứa số lượng truy xuất phần tử, sau đó sử dụng phương pháp mảng hiệu để biết phần tử nào được truy xuất nhiều lần bằng mảng cộng dồn
 từ đó sắp xếp các phần tử lớn nhất vào chỗ chứa đó (fre[L] += 1 | fre[R+1] -= 1
 -sau khi đã ra được mảng chứa số lượng, thực hiện sort tăng dần hoặc giảm dần tuỳ ý
 -sau đó để ra được kết quả to nhất, ví dụ là 33 trong bài, thì sử dụng sum = arr[i] * fre[i]
 ***
-***Cách 2: (không tối ưu, tốn Q*N
+***Cách 2: (không tối ưu, tốn Ox(Q*N)
 -tạo mảng chứa số lượng truy xuất phần tử, sau đó sử dụng phương pháp mảng hiệu để biết phần tử nào được truy xuất nhiều lần
             for (int i = l; i <= r; i++) {
                 frequency[i]++;
             }
 -tiếp theo làm như cách trên
+*** Vậy cách 1 đã tối ưu thì tại sao vẫn làm cách 2 ?
+Vì cách 1 là tối ưu nhưng sai đề bài, đó là đảo phần tử trong mảng gốc, nhưng cách 2 vẫn giữ nguyên mảng gốc, chỉ đảo phần tử
+Ví dụ cách 1: thì kết quả sẽ cho ra 2 mảng tương xứng: arr[5,5,5,3,2,1] fre[2,2,2,1,0,0], sai L,R
+Ví dụ cách 2: thì đảo làm sau cho đúng vị trí, kết quả cho vị trí đúng vs l-r [1,5,5,5,3,2] thoả yêu cầu L,R [2,4],[2,3]
