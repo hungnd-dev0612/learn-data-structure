@@ -1,51 +1,58 @@
 package algorithm.search;
 
+import java.util.Arrays;
+
 public class BinarySearch {
     public static void main(String[] args) {
-        int low, mid, high, getDistence, resultBetween;
-        int[] arr = new int[]{7
-                , 13
-                , 15
-                , 17
-                , 19
-                , 19
-                , 21
-                , 34
-                , 45
-                , 49
-                , 49
-                , 53
-                , 75
-                , 79
-                , 89
-                , 92};
-        low = 0;
-        high = arr.length - 1;
-        mid = (low + high) / 2;
-        int x = 53;
-        for (int i = low; i < high; i++) {
+        int[] arr = new int[1000000000];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = i;
+        }
+        int x = 999999;
+        double time = measureExecutionTime(() -> {
+            int result = binarySearch3(arr, x);
+            if (result != -1) {
+                System.out.println("find number " + x + " at index: " + result);
+            } else {
+                System.out.println("cant find number: " + x);
+            }
+        });
+        System.out.println("time running: " + time);
+    }
+
+    public static int binarySearch(int[] arr, int x) {
+        int low = 0;
+        int high = arr.length - 1;
+        int mid = 0;
+        while (low <= high) {
+//            mid = (low + high) / 2
+            mid = low + (high - low) / 2; //tránh tràn số, ví dụ (2,147,483,645 + 2,147,483,640) / 2 thì phép cộng được làm trước dẫn đến tràn số int
             if (arr[mid] == x) {
-                System.out.println("return element x = " + arr[mid] + " at index "+ mid);
-                break;
+                return mid;
             } else if (arr[mid] > x) {
-                System.out.println("mid > x");
-                high = getIndex(mid) - 1;
-                mid = (low + high) / 2;
-            } else if (arr[mid] < x) {
-                low = getIndex(mid) + 1;
-                mid = (low + high) / 2;
-            } else if (low == x || high == x) {
-                System.out.println("return  x = " + arr[mid]);
-                break;
-            }else {
-                System.out.println("not found - 1");
+                high = mid - 1;
+            } else {  // arr[mid] < x
+                low = mid + 1;
             }
         }
-
+        return -1;
     }
 
-    public static int getIndex(int target) {
-        return target;
+    public static int linearSearch(int[] arr, int x) {
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == x) {
+                return arr[i];
+            }
+        }
+        return -1;
     }
 
+    public static double measureExecutionTime(Runnable func) {
+        long start = System.nanoTime();
+        func.run();
+        long duration = System.nanoTime() - start;
+        double d = (double) duration / 1000000; //Convert to milliseconds
+        d = d * 1000; //Convert to seconds
+        return d;
+    }
 }
