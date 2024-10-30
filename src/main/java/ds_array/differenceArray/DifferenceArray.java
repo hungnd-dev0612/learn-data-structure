@@ -1,5 +1,7 @@
 package ds_array.differenceArray;
 
+import util.TestPerformUtil;
+
 import java.util.Arrays;
 
 /*
@@ -27,11 +29,8 @@ import java.util.Arrays;
  */
 public class DifferenceArray {
     public static void main(String[] args) {
-        long start = System.nanoTime();
-        testFunc();
-        long duration = (System.nanoTime() - start);
-        double result1 = (double) duration / 1000000;
-        System.out.println(result1 + " ms");
+        double executionTime = TestPerformUtil.measureExecutionTime(DifferenceArray::testFunc);
+        System.out.println(executionTime + " millisecond");
     }
     public static void testFunc() {
         // Mảng ban đầu

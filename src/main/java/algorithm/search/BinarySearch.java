@@ -1,6 +1,7 @@
 package algorithm.search;
-
 import java.util.Arrays;
+
+import static util.TestPerformUtil.measureExecutionTime;
 
 public class BinarySearch {
     public static void main(String[] args) {
@@ -9,8 +10,9 @@ public class BinarySearch {
             arr[i] = i;
         }
         int x = 999999;
+        Arrays.sort(arr);
         double time = measureExecutionTime(() -> {
-            int result = binarySearch3(arr, x);
+            int result = binarySearch(arr, x);
             if (result != -1) {
                 System.out.println("find number " + x + " at index: " + result);
             } else {
@@ -47,12 +49,4 @@ public class BinarySearch {
         return -1;
     }
 
-    public static double measureExecutionTime(Runnable func) {
-        long start = System.nanoTime();
-        func.run();
-        long duration = System.nanoTime() - start;
-        double d = (double) duration / 1000000; //Convert to milliseconds
-        d = d * 1000; //Convert to seconds
-        return d;
-    }
 }
