@@ -2,6 +2,7 @@ package ds_array;
 
 import lombok.extern.log4j.Log4j2;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 @Log4j2
@@ -28,6 +29,7 @@ public class Part4 {
         int x = scan.nextInt();
         for (int i = n; i >= k + 1; i--) {
             array[i] = array[i - 1];
+            System.out.println(Arrays.toString(array));
         }
         array[k] = x;
         String arrayToString = "";
