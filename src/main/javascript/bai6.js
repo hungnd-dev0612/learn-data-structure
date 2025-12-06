@@ -15,5 +15,5 @@ function isPrime(n) {
   }
   return true;
 }
-// what happend here
+// what happen here
 console.log(array([1, 2, 3, 4])); // Example usage

@@ -5,5 +5,4 @@ function array(a) {
   console.log(a.join(" "));
 }
 array([1, 2, 3, 4]);
-// Expected output: 30
 
